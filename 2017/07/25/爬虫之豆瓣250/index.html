@@ -5,17 +5,17 @@
   
   <title>爬虫之豆瓣250 | freya&#39;s backyard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="终于搭建好了git blog，总不能空空如也，那就送上我的爬虫处女作，小白入门勿喷！`(∩_∩)′，基数越低，成长越快！day day up！ code123# -*- coding: utf-8 -*-import requestsfrom bs4 import BeautifulSoup 12345678910111213141516171819def download_page(url):">
+  <meta name="description" content="终于搭建好了git blog，总不能空空如也，那就送上我的爬虫处女作，小白入门勿喷！`(∩_∩)′，基数越低，成长越快！day day up！ code">
 <meta name="keywords" content="爬虫,bs4,requests">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫之豆瓣250">
 <meta property="og:url" content="http://yoursite.com/2017/07/25/爬虫之豆瓣250/index.html">
 <meta property="og:site_name" content="freya&#39;s backyard">
-<meta property="og:description" content="终于搭建好了git blog，总不能空空如也，那就送上我的爬虫处女作，小白入门勿喷！`(∩_∩)′，基数越低，成长越快！day day up！ code123# -*- coding: utf-8 -*-import requestsfrom bs4 import BeautifulSoup 12345678910111213141516171819def download_page(url):">
-<meta property="og:updated_time" content="2017-07-25T16:00:27.984Z">
+<meta property="og:description" content="终于搭建好了git blog，总不能空空如也，那就送上我的爬虫处女作，小白入门勿喷！`(∩_∩)′，基数越低，成长越快！day day up！ code">
+<meta property="og:updated_time" content="2017-07-25T16:03:16.300Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫之豆瓣250">
-<meta name="twitter:description" content="终于搭建好了git blog，总不能空空如也，那就送上我的爬虫处女作，小白入门勿喷！`(∩_∩)′，基数越低，成长越快！day day up！ code123# -*- coding: utf-8 -*-import requestsfrom bs4 import BeautifulSoup 12345678910111213141516171819def download_page(url):">
+<meta name="twitter:description" content="终于搭建好了git blog，总不能空空如也，那就送上我的爬虫处女作，小白入门勿喷！`(∩_∩)′，基数越低，成长越快！day day up！ code">
   
     <link rel="alternate" href="/atom.xml" title="freya&#39;s backyard" type="application/atom+xml">
   
@@ -87,12 +87,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>终于搭建好了git blog，总不能空空如也，那就送上我的爬虫处女作，小白入门勿喷！`(<em>∩_∩</em>)′，基数越低，成长越快！day day up！</p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line">import requests</div><div class="line">from bs4 import BeautifulSoup</div></pre></td></tr></table></figure>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line">import requests</div><div class="line">from bs4 import BeautifulSoup</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">def download_page(url):</div><div class="line">    content=requests.get(url)</div><div class="line">    <span class="built_in">return</span> content.text</div><div class="line">def movieinfo(url):</div><div class="line">    commonurl=url+<span class="string">"?start=&#123;&#125;&amp;filter="</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(0,9):</div><div class="line">        <span class="built_in">print</span><span class="string">"第%s页"</span>%i</div><div class="line">        soup = BeautifulSoup(download_page( commonurl.format(str(25*i))),<span class="string">"html.parser"</span>)</div><div class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> soup.select(<span class="string">'.info'</span>):</div><div class="line">            <span class="built_in">print</span> item.select(<span class="string">'.hd .title'</span>)[0].text</div><div class="line">            <span class="built_in">print</span> item.select(<span class="string">'.bd .rating_num'</span>)[0].text</div><div class="line">            <span class="built_in">print</span> item.select(<span class="string">'.bd span'</span>)[3].text.strip(u<span class="string">'人评价'</span>)</div><div class="line">            <span class="keyword">if</span>(len(item.select(<span class="string">'.bd .inq'</span>))&gt;0):</div><div class="line">                <span class="built_in">print</span> item.select(<span class="string">'.bd .inq'</span>)[0].text</div><div class="line">    </div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    url =<span class="string">"https://movie.douban.com/top250"</span></div><div class="line">    movieinfo(url)</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/25/爬虫之豆瓣250/" data-id="cj5jrpsq80001fss68g7md5e9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/25/爬虫之豆瓣250/" data-id="cj5jrtdxd0001mgs6dt09vcvp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bs4/">bs4</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/requests/">requests</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
